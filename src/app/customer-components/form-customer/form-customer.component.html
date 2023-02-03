@@ -1,0 +1,15 @@
+<div class="container-form">
+    <form (ngSubmit)="onSubmit(cutomerFrom.value)" #cutomerFrom="ngForm">
+        <div>
+            <app-record-field (newItemEvent)="addCustomerNames($event)" [idInput]="'names'" [fieldType]="'text'" [name]="'names'" [description]="'Nombres'"></app-record-field>
+            <app-record-field [idInput]="'surnames'" [fieldType]="'text'" [name]="'surnames'" [description]="'Apellidos'" ></app-record-field>
+            <app-record-field [idInput]="'place-of-birth'" [fieldType]="'text'" [name]="'place-of-birth'" [description]="'Lugar de nacimiento'"></app-record-field>
+            <app-date-information-field [fieldType]="'number'" [description]="'Fecha de nacimiento'" ></app-date-information-field>
+            <app-blue-button [type]="'submit'" [route]="'/addcustomer'" [label]="'Continuar >'"></app-blue-button>
+        </div>
+    </form>
+
+    <pre>
+        {{cutomerFrom.value | json}}
+    </pre>
+</div>
