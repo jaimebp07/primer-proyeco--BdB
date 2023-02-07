@@ -13,7 +13,7 @@ import { FormCustomerComponent } from './customer-components/form-customer/form-
 import { CaptionComponent } from './general/caption/caption.component';
 import { RecordFieldComponent } from './general/record-field/record-field.component';
 import { DateInformationFieldComponent } from './general/date-information-field/date-information-field.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -32,7 +32,8 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

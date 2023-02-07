@@ -9,6 +9,7 @@ export class BlueButtonComponent {
   @Input() label!: String;
   @Input() route!: String;
   @Input() type!: String;
-
-  
+  @Input() disabledValue!: boolean;
+  @Input() colorBtn!: String;
+  @Input() showActive!: boolean;
 }

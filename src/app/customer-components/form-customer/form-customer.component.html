@@ -1,15 +1,45 @@
 <div class="container-form">
-    <form (ngSubmit)="onSubmit(cutomerFrom.value)" #cutomerFrom="ngForm">
+    <form (ngSubmit)="onSubmit()" [formGroup]="customerForm">
         <div>
-            <app-record-field (newItemEvent)="addCustomerNames($event)" [idInput]="'names'" [fieldType]="'text'" [name]="'names'" [description]="'Nombres'"></app-record-field>
-            <app-record-field [idInput]="'surnames'" [fieldType]="'text'" [name]="'surnames'" [description]="'Apellidos'" ></app-record-field>
-            <app-record-field [idInput]="'place-of-birth'" [fieldType]="'text'" [name]="'place-of-birth'" [description]="'Lugar de nacimiento'"></app-record-field>
-            <app-date-information-field [fieldType]="'number'" [description]="'Fecha de nacimiento'" ></app-date-information-field>
-            <app-blue-button [type]="'submit'" [route]="'/addcustomer'" [label]="'Continuar >'"></app-blue-button>
+            <!-- <app-record-field (newItemEvent)="addCustomerNames($event)" [idInput]="'names'" [fieldType]="'text'" [name]="'names'" [description]="'Nombres'"></app-record-field> -->
+            <!-- <app-record-field  [idInput]="'surnames'" [fieldType]="'text'" [name]="'surnames'" [description]="'Apellidos'" ></app-record-field> -->
+            <!-- <app-record-field [idInput]="'place-of-birth'" [fieldType]="'text'" [name]="'place-of-birth'" [description]="'Lugar de nacimiento'"></app-record-field> -->
+            <!-- <app-date-information-field [fieldType]="'number'" [description]="'Fecha de nacimiento'" ></app-date-information-field> -->
+            <!-- <app-blue-button [type]="'submit'" [route]="'/addcustomer'" [label]="'Continuar >'"></app-blue-button> -->
+            
+            <div class="container-record-field">
+                <label for="names" class="description">Nombres</label>
+                <input id="names" class="information-field" formControlName="names" type="text">
+            </div>
+            <div class="container-record-field">
+                <label for="place-of-birth" class="description">Apellidos</label>
+                <input id="place-of-birth" class="information-field" formControlName="surnames" type="text">
+            </div>
+            <div class="container-record-field">
+                <label for="place-of-birth" class="description">Lugar de nacimiento</label>
+                <input id="place-of-birth" class="information-field" formControlName="placeOfBirth" type="text">
+            </div>
+            <div class="container-date-information-field">
+                <label class="description" for="">Fecha de nacimiento</label>
+                <input class="day" type="number" formControlName="birthdayDay" [(ngModel)]="day"
+                    (keyup)="validateAge()">
+                <input class="month" type="number" formControlName="birthdayMonth" [(ngModel)]="month"
+                    (keyup)="validateAge()">
+                <input class="year" type="number" formControlName="birthdayYear" [(ngModel)]="year"
+                    (keyup)="validateAge()">
+            </div>
+
+            <!-- <app-blue-button [disabledValue]="customerForm.invalid" [type]="'submit'" [route]="'/'" [label]="'Continuar >'" ></app-blue-button> -->
+            <!-- <button [disabled]="customerForm.invalid" type="submit" class="blue-button" routerLink="/">
+                Continuar > </button> -->
+
+            <div *ngIf="!customerForm.invalid && isOlder; else elseBlock">
+                <button [disabled]="customerForm.invalid" type="submit" class="blue-button" routerLink="/">
+                    Continuar > </button>
+            </div>
+            <ng-template #elseBlock>
+                <app-blue-button [showActive]="false" [route]="'/addcustomer'" [type]="'submit'"  [label]="'Continuar >'" ></app-blue-button>
+            </ng-template>
         </div>
     </form>
-
-    <pre>
-        {{cutomerFrom.value | json}}
-    </pre>
 </div>
