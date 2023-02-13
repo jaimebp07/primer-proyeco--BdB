@@ -6,7 +6,7 @@
             <!-- <app-record-field [idInput]="'place-of-birth'" [fieldType]="'text'" [name]="'place-of-birth'" [description]="'Lugar de nacimiento'"></app-record-field> -->
             <!-- <app-date-information-field [fieldType]="'number'" [description]="'Fecha de nacimiento'" ></app-date-information-field> -->
             <!-- <app-blue-button [type]="'submit'" [route]="'/addcustomer'" [label]="'Continuar >'"></app-blue-button> -->
-            
+
             <div class="container-record-field">
                 <label for="names" class="description">Nombres</label>
                 <input id="names" class="information-field" formControlName="names" type="text">
@@ -34,11 +34,12 @@
                 Continuar > </button> -->
 
             <div *ngIf="!customerForm.invalid && isOlder; else elseBlock">
-                <button [disabled]="customerForm.invalid" type="submit" class="blue-button" routerLink="/">
-                    Continuar > </button>
+                <button (click)="sendCorrectInfo()" [disabled]="customerForm.invalid" type="submit" class="blue-button" routerLink="/addcustomerfinancial"> Continuar > </button>
+                <!-- <app-blue-button (click)="sendCorrectInfo()" [showActive]="true" [route]="'/addcustomerfinancial'" [label]="'Continuar >'"></app-blue-button> -->
             </div>
             <ng-template #elseBlock>
-                <app-blue-button [showActive]="false" [route]="'/addcustomer'" [type]="'submit'"  [label]="'Continuar >'" ></app-blue-button>
+                <app-blue-button (click)="sendIncorrectInfo()" [showActive]="false" [route]="'/addcustomer'" [type]="'submit'"
+                    [label]="'Continuar >'"></app-blue-button>
             </ng-template>
         </div>
     </form>

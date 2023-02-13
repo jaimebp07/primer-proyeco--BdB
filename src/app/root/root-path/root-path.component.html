@@ -1,7 +1,13 @@
 <div class="body">
     <app-general-header></app-general-header>
-    <!-- <app-container-caption></app-container-caption> -->
     <app-caption [label]="'Clientes registrados'"></app-caption>
-    <app-customer-registration></app-customer-registration>
+    <div *ngIf="areRegisteredCustomers; else elseBlock">
+        <ul *ngFor="let customer of arrayCustomersData">
+            <app-customer-registration [customerNames]="customer['personalData']['names']" [surnames]="customer['personalData']['surnames']" [placeOfBirth]="customer['personalData']['placeOfBirth']"></app-customer-registration>
+        </ul>
+    </div>
+    <ng-template #elseBlock>
+        <app-no-customer-registration></app-no-customer-registration>
+    </ng-template>
     <app-blue-button [showActive]="true" [route]="'/addcustomer'" [label]="'Incluir cliente >'"></app-blue-button>
 </div>

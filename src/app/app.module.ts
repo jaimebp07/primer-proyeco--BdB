@@ -14,6 +14,10 @@ import { CaptionComponent } from './general/caption/caption.component';
 import { RecordFieldComponent } from './general/record-field/record-field.component';
 import { DateInformationFieldComponent } from './general/date-information-field/date-information-field.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FinancialComponent } from './financial-components/financial/financial.component';
+import { FormFinancialComponent } from './financial-components/form-financial/form-financial.component';
+import { NoCustomerRegistrationComponent } from './root/no-customer-registration/no-customer-registration.component';
+import { CustomerDataComponent } from './general/customer-data/customer-data.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +30,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormCustomerComponent,
     CaptionComponent,
     RecordFieldComponent,
-    DateInformationFieldComponent
+    DateInformationFieldComponent,
+    FinancialComponent,
+    FormFinancialComponent,
+    NoCustomerRegistrationComponent,
+    CustomerDataComponent
   ],
   imports: [
     BrowserModule,

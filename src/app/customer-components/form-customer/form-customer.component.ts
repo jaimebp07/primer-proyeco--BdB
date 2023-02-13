@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { LocalStorageService } from 'src/app/storage/local-storage.service';
 
 @Component({
   selector: 'app-form-customer',
@@ -18,7 +19,7 @@ export class FormCustomerComponent {
   isOlder: boolean = false;
   currentAge!: number;
 
-  constructor(private readonly fb: FormBuilder){
+  constructor(private readonly fb: FormBuilder, private _localStorageService: LocalStorageService) {
     this.customerForm = this.fb.group({
       names: ['', [Validators.required, Validators.minLength(3)]],
       surnames: ['', [Validators.required, Validators.minLength(3)]],
@@ -30,32 +31,53 @@ export class FormCustomerComponent {
   }
 
   onSubmit(): void {
-    // console.log("values", values);
-    console.log('Form ->', this.customerForm.value);
-    console.log("customerForm: ", this.customerForm.value);
+  }
+
+  sendCorrectInfo(): void {
+    const dataCustomer = JSON.stringify(this.customerForm.value);
+    sessionStorage.setItem('customer-form', dataCustomer)
+  }
+
+  getStorageInfo<T>(key: string): T | null {
+    const dataCustomer = localStorage.getItem('customer-form');
+    if (dataCustomer !== null) {
+      return JSON.parse(dataCustomer) as T
+    }
+    return null;
+  }
+
+  sendIncorrectInfo(): void {
+    this.customerForm.controls['birthdayYear'].setValue("");
+    this.customerForm.controls['birthdayMonth'].setValue("");
+    this.customerForm.controls['birthdayDay'].setValue("");
   }
 
   validateAge() {
-    this.currentAge = (this.currentYear - this.year);
-
-    if((this.currentAge >= 17 ) && (this.year < this.currentYear) && (this.year > 1900)){
-      if(this.currentAge > 17){
-        this.isOlder = true;
-        console.log("Es mayor de edad")
-      } else {
-        if(this.month < this.currentMonth){
+    const [d, m, y] = [this.day, this.month, this.year]
+    const dateConversion = new Date(`${y}/${m}/${d}`);
+    if ("" + dateConversion == "Invalid Date") {
+      this.isOlder = false;
+    } else {
+      this.currentAge = (this.currentYear - this.year);
+      if ((this.currentAge >= 17) && (this.year < this.currentYear) && (this.year > 1900)) {
+        if (this.currentAge > 17) {
           this.isOlder = true;
-          console.log("Es mayor de edad")
         } else {
-          if(this.day < this.currentDay){
+          if (this.month < this.currentMonth) {
             this.isOlder = true;
-            console.log("Es mayor de edad")
+          } else {
+            if (this.day < this.currentDay && this.day <= 31) {
+              this.isOlder = true;
+            } else {
+              this.isOlder = false;
+            }
           }
         }
+      } else {
+        this.isOlder = false;
       }
-      
     }
-    
+
   }
 }
 

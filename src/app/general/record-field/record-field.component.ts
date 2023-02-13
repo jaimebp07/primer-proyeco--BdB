@@ -11,10 +11,11 @@ export class RecordFieldComponent {
   @Input() name!: string;
   @Input() idInput!: string;
 
-  @Output() newItemEvent = new EventEmitter<string>();
+  @Output() valueFieldInput = new EventEmitter<string>();
 
-  onAddNewItem(item: string): void{
-    console.log('Item ->', item.valueOf);
-    this.newItemEvent.emit(item);
+  takeValueInput(event: Event) {
+    let valueItem =  (event.target as HTMLInputElement).value;
+    this.valueFieldInput.emit(valueItem);
   }
+ 
 }

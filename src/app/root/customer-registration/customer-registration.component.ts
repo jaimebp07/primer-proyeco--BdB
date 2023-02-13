@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import {faPenToSquare} from '@fortawesome/free-solid-svg-icons';
+import { Component, Input } from '@angular/core';
+import {faTrash} from '@fortawesome/free-solid-svg-icons';
+import {faPen} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-customer-registration',
@@ -7,5 +8,9 @@ import {faPenToSquare} from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./customer-registration.component.css']
 })
 export class CustomerRegistrationComponent {
-  faPenSquareIcon = faPenToSquare;
+  @Input() customerNames!: string;
+  @Input() surnames!: string;
+  @Input() placeOfBirth!: string;
+  faTrash = faTrash;
+  faPen = faPen;
 }

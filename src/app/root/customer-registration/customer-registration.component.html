@@ -1,9 +1,15 @@
-<div class="container-customer-registration">
-    <div class="trampita">
-
+<div class="container-customer">
+    <div class="div-data">
+        <app-customer-data [description]="'Nombre:'" [value]="customerNames"></app-customer-data>
+        <app-customer-data [description]="'Apellidos:'" [value]="surnames"></app-customer-data>
+        <app-customer-data [description]="'Lugar de nacimiento:'" [value]="placeOfBirth"></app-customer-data>
     </div>
-   <div class="container-icon">
-       <fa-icon class="faPenSquareIcon" [icon]="faPenSquareIcon"></fa-icon>
+    <div class="div-buttons">
+        <div class="div-faPen">
+            <fa-icon class="faPen" [icon]="faPen"></fa-icon>
+        </div>
+        <div class="div-faTrash">
+            <fa-icon class="faTrash" [icon]="faTrash"></fa-icon>
+        </div>
     </div>
-    <p class="text-no-records">No existen registros todavía</p>
 </div>

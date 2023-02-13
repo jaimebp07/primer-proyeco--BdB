@@ -1,46 +1,65 @@
-.trampita{
-    width: 360px;
-    height: 20px;
-    background-color: #F6F8FA;
-}
-
-.container-customer-registration {
+.container-customer {
     position: relative;
-    width: 360px;
-    height: 300px;
-    background-color: #F6F8FA;
-    text-align: center;
+    background-color: white;
+    height: 168px;
+    width: 328px;
+    border: 1px solid #E3E3E3;
+    margin-top: -17px;
+    margin-left: -25px;
 }
 
-.container-icon {
-    margin-left: 105px;
-    background-color: #E6EFF8;
-    height: 138px;
-    width: 138px;
-    border-radius: 50%;
-    margin-top: 50px;
-}
-
-.faPenSquareIcon {
+.div-data{
     position: relative;
-    top: 37px;
-    font-size: 60px;
-    color: #a2a7ac;
+    margin-top: 8px;
+    margin-left: 24px;
 }
 
-.text-no-records {
-    width: 223px;
-    height: 21px;
-    margin-top: 24px;
-    margin-left: 68px;
+.div-buttons{
+    position: relative;
+    margin-top: 16px;
+    margin-left: 24px;
+    width: 280px;
+    height: 32px;
+    /* background-color: aquamarine; */
 
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 450;
-    font-size: 18px;
-    line-height: 21px;
+    /* display: table; */
+}
 
-    color: #858585;
+.faPen {
+    /* position: relative; */
+    color: #0040A8;
+    font-size: 22px;
+    /* margin-left: 200px; */
+    /* margin-top: 6px; */
+}
 
-    letter-spacing: -0.0384615px;
+.div-faPen{
+
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    margin-top: 05px;
+    margin-left: 200px;
+
+    /* background-color: chocolate; */
+}
+
+.faTrash{
+    color: #0040A8;
+    /* margin-top: -20px; */
+    font-size: 22px;
+    
+    /* display: table-cell;
+    vertical-align: middle; */
+    /* margin-left: 240px; */
+}
+
+.div-faTrash{
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    margin-top: 5px;
+    margin-left: 250px;
+
+    /* background-color: rgb(150, 210, 30); */
 }
