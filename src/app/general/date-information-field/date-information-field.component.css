@@ -1,0 +1,44 @@
+.container-date-information-field {
+    background-color: #F6F8FA;
+    width: 360px;
+    height: 120px;
+}
+
+.description {
+    position: absolute;
+    margin-top: 24px;
+    margin-left: 16px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-size: 14px;
+}
+
+input {
+    box-sizing: border-box;
+    width: 98px;
+    height: 48px;
+    /* Primarios/White */
+    background: #FFFFFF;
+    /* Grises/Carbon-400 */
+    border: 1px solid #ADADAD;
+    border-radius: 4px;
+    margin-top: 50px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 14px;
+}
+
+.day {
+    margin-left: 16px;
+}
+
+.month {
+    margin-left: 17px;
+}
+
+.year {
+    margin-left: 17px;
+}

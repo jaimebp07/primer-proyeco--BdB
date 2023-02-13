@@ -1,0 +1,25 @@
+.empty-space{
+    height: 38px;
+}
+
+
+.blue-button {
+    width: 328px;
+    height: 48px;
+    margin-left: 12px;
+    border-radius: 24px;
+    background-color: #0040A8;;
+
+    font-family: 'Roboto';
+    /* font-family: 'Roboto', sans-serif; */
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+
+    letter-spacing: 0.2px;
+
+    /* Primarios/White */
+
+    color: #FFFFFF;
+}

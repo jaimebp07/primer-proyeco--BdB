@@ -1,0 +1,21 @@
+<div class="container-form">
+    <form (ngSubmit)="onSubmit()" [formGroup]="financialForm">
+
+        <app-record-field  (valueFieldInput)="setInputSpouseIncome($event)"  [idInput]="'spouse-income'" [fieldType]="'number'" [name]="'spouse-income'" [description]="'Ingresos mensuales del cónyuge'"></app-record-field>
+        <app-record-field  (valueFieldInput)="setInputSpouseExpenses($event)"  [idInput]="'spouse-expenses'" [fieldType]="'number'" [name]="'spouse-expenses'" [description]="'Egresos mensuales del cónyuge'"></app-record-field>
+        <app-record-field  (valueFieldInput)="setInputSpouseAsset($event)"  [idInput]="'spouse-asset'" [fieldType]="'number'" [name]="'spouse-asset'" [description]="'Valor de activos del cónyuge'"></app-record-field>
+        <app-record-field  (valueFieldInput)="setInputSpouseLiabilities($event)"  [idInput]="'spouse-liabilities'" [fieldType]="'number'" [name]="'spouse-liabilities'" [description]="'Valor de pasivos del cónyuge'"></app-record-field>
+        
+        <div class="empty-space"> </div>
+
+        <div *ngIf="!financialForm.invalid; else elseBlock">
+            <button (click)="sendCorrectInfo()" [disabled]="financialForm.invalid" type="submit" class="blue-button" routerLink="/"> Continuar > </button>
+            <!-- <app-blue-button (click)="sendCorrectInfo()" [showActive]="true" [route]="'/'" [type]="'submit'" [label]="'Crear cliente >'"></app-blue-button> -->
+        </div>
+        <ng-template #elseBlock>
+            <app-blue-button [showActive]="false" [route]="'/addcustomerfinancial'" [type]="'submit'"
+                [label]="'Crear cliente >'"></app-blue-button>
+        </ng-template>
+    </form>
+</div>
+
