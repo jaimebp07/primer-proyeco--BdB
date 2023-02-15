@@ -1,0 +1,33 @@
+.container-record-field {
+    background-color: #F6F8FA;
+    width: 360px;
+}
+
+.description {
+    position: absolute;
+    margin-top: 24px;
+    margin-left: 16px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-size: 14px;
+    
+}
+
+.information-field {
+    width: 328px;
+    height: 48px;
+    /* Primarios/White */
+    margin-top: 50px;
+    margin-left: 16px;
+    background: #FFFFFF;
+    /* Grises/Carbon-400 */
+    border: 1px solid #ADADAD;
+    border-radius: 4px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 14px;
+
+}
