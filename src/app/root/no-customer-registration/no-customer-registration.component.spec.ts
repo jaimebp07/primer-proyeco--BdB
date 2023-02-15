@@ -1,3 +1,4 @@
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NoCustomerRegistrationComponent } from './no-customer-registration.component';
@@ -8,7 +9,8 @@ describe('NoCustomerRegistrationComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NoCustomerRegistrationComponent ]
+      declarations: [ NoCustomerRegistrationComponent ],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
     })
     .compileComponents();
 

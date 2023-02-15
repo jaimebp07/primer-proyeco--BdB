@@ -1,16 +1,27 @@
+
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormBuilder } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { of } from 'rxjs';
 
 import { FormCustomerComponent } from './form-customer.component';
 
 describe('FormCustomerComponent', () => {
   let component: FormCustomerComponent;
   let fixture: ComponentFixture<FormCustomerComponent>;
+  const route = ({ data: of({ label: 'hello' }) } as any) as ActivatedRoute;
+  const mockRouter = { navigate: jasmine.createSpy('navigate') };
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FormCustomerComponent ]
+      declarations: [FormCustomerComponent],
+      schemas: [NO_ERRORS_SCHEMA],
+      providers: [FormBuilder, { provide: ActivatedRoute, useValue: route },
+        { provide: Router, useValue: mockRouter },]
+      
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(FormCustomerComponent);
     component = fixture.componentInstance;
