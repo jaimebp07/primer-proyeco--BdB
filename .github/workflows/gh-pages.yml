@@ -35,4 +35,4 @@ jobs:
 
     - name: Deploy
       if: success()
-      run: aws s3 sync ./dist/primer-proyeco-bd-b s3://jb-aws-bucket
+      run: aws s3 sync ./dist/primer-proyecto-bd-b s3://jb-aws-bucket
