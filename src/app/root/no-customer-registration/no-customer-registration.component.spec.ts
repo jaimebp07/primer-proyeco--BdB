@@ -1,5 +1,6 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { NoCustomerRegistrationComponent } from './no-customer-registration.component';
 
@@ -9,6 +10,7 @@ describe('NoCustomerRegistrationComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports:      [  FontAwesomeModule ],
       declarations: [ NoCustomerRegistrationComponent ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     })

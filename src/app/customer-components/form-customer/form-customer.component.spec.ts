@@ -1,7 +1,7 @@
 
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormsModule, NgModel, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { of } from 'rxjs';
 
@@ -15,9 +15,12 @@ describe('FormCustomerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [ReactiveFormsModule, FormsModule],
       declarations: [FormCustomerComponent],
       schemas: [NO_ERRORS_SCHEMA],
-      providers: [FormBuilder, { provide: ActivatedRoute, useValue: route },
+      // providers: [FormBuilder, { provide: ActivatedRoute, useValue: route },
+      //   { provide: Router, useValue: mockRouter },]
+      providers: [{ provide: ActivatedRoute, useValue: route },
         { provide: Router, useValue: mockRouter },]
       
     })

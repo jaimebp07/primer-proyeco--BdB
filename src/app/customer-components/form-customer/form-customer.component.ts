@@ -77,7 +77,6 @@ export class FormCustomerComponent {
         this.isOlder = false;
       }
     }
-
   }
 }
 
