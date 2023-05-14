@@ -18,8 +18,6 @@ describe('FormCustomerComponent', () => {
       imports: [ReactiveFormsModule, FormsModule],
       declarations: [FormCustomerComponent],
       schemas: [NO_ERRORS_SCHEMA],
-      // providers: [FormBuilder, { provide: ActivatedRoute, useValue: route },
-      //   { provide: Router, useValue: mockRouter },]
       providers: [{ provide: ActivatedRoute, useValue: route },
         { provide: Router, useValue: mockRouter },]
       

@@ -11,9 +11,7 @@ export class AppComponent {
   title = 'primer-proyecto-BdB';
   faXboxicon = faXbox;
   arrayCustomersDataDB: Customer[] = new Array();
-
-  // NUevo
-
+  
   constructor(
     private customerService: CustomersService
   ) {
@@ -41,10 +39,7 @@ export class AppComponent {
         }
         arrayCustomersData.push(objectCustomerData)
       }
-      console.log("arrayCustomersData  dentro --> ", arrayCustomersData)
       localStorage.setItem("arrayObjectClientData", JSON.stringify(arrayCustomersData));
     })
-    console.log("this.arrayCustomersDataDB fuera --> ", this.arrayCustomersDataDB);
   }
-
 }

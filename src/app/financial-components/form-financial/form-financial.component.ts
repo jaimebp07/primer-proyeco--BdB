@@ -9,7 +9,8 @@ import { Customer, CustomersService } from '../../services/customers.service';
 })
 export class FormFinancialComponent {
   financialForm!: FormGroup;
-  // arrayCustomersData: string[] = new Array();
+  // array_customers_offline: Customer[] = new Array();
+  // array_customers_offline = useState<any[]>([]);
 
   constructor(private readonly fb: FormBuilder, private customerService: CustomersService) {
     this.financialForm = this.fb.group({
@@ -32,7 +33,6 @@ export class FormFinancialComponent {
 
     const financialData = this.financialForm.value;
     let objectCustomerData = { "personalData": JSON.parse("" + sessionStorage.getItem('customer-form')), "financialData": financialData }
-    // console.log("objectClientData --> ", objectCustomerData)
     this.insertDB(objectCustomerData);
     arrayCustomersData.push(objectCustomerData)
     localStorage.setItem("arrayObjectClientData", JSON.stringify(arrayCustomersData));
@@ -53,7 +53,6 @@ export class FormFinancialComponent {
       active_spouse: objectCustomerData["financialData"]["spouseAsset"],
       pasive_spouse: objectCustomerData["financialData"]["spouseLiabilities"]
     }
-
 
     this.customerService.addCustomers$(sendObject);
   }
