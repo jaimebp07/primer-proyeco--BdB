@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -18,6 +18,7 @@ import { FinancialComponent } from './financial-components/financial/financial.c
 import { FormFinancialComponent } from './financial-components/form-financial/form-financial.component';
 import { NoCustomerRegistrationComponent } from './root/no-customer-registration/no-customer-registration.component';
 import { CustomerDataComponent } from './general/customer-data/customer-data.component';
+import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -41,9 +42,13 @@ import { CustomerDataComponent } from './general/customer-data/customer-data.com
     AppRoutingModule,
     FontAwesomeModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [
+    NO_ERRORS_SCHEMA
+  ]
 })
 export class AppModule { }
